@@ -58,8 +58,6 @@ layout: default
     {% for pg in site.data.poems_2021 %}
 
       {% if pg.pid == page.pid %}
-          <p>{{ page.pid }}</p>
-          <h1>{{ forloop.index }}</h1>
 
           {% assign previousIndex = forloop.index | minus: 1 %}
         {% endif %}
@@ -70,8 +68,6 @@ layout: default
     {% for pg in site.data.poems_2021 %}
 
          {% if forloop.index == previousIndex %}
-          <p>{{ pg.pid }}</p>
-          <h1>{{ forloop.index }}</h1>
 
           {% assign previousPage = pg.pid %}
 

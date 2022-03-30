@@ -34,10 +34,10 @@ layout: default
     <p><a href="tcontentspage.html"><  &nbsp; table of contents</a></p>
     <div class="poemtags">
       <ul>
-        <li><a href="">tag</a></li>
-        <li><a href="">tag</a></li>
-        <li><a href="">tag</a></li>
-        <li><a href="">tag</a></li>
+        <li><a href="">{{page.author}}</a></li>
+        <li><a href="">{{page.translator}}</a></li>
+        <li><a href="">{{page.language}}</a></li>
+
       </ul>
     </div>
   </div>
@@ -56,11 +56,25 @@ layout: default
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis orci vel sapien convallis laoreet. Nulla ut ipsum magna. Integer in ligula imperdiet, facilisis velit at, laoreet sem. Etiam quis ipsum in nunc vulputate venenatis. Morbi nec tortor at ligula commodo bibendum id ac justo. In porttitor dui ut mauris bibendum fringilla. Fusce molestie eleifend arcu in congue. Suspendisse nunc eros, vestibulum tincidunt pharetra vitae, aliquet sit amet velit. Praesent dignissim, magna et egestas tempor, mi lectus condimentum eros, a malesuada elit mi eu erat. Mauris vitae leo id metus viverra malesuada. Etiam dignissim bibendum ligula, vitae sagittis nisi facilisis vel.</p>
     </div>
   </div>
+{% for pg in site.data.poems_2021 %}
+
+      {% if pg.pid == page.pid %}
+          <p>{{ page.pid }}</p>
+          <h1>{{ forloop.index }}</h1>
+
+          {% assign nextIndex = forloop.index | plus: 1 %}
+
+          {% assign currentIndex = forloop.index %}
+
+        {% endif %}
+
+    {% endfor %}
+
   <div class="previouslink">
-    <p><a href="url"><  &nbsp; previous</a></p>
+    <p><a href="{{site.url}}/poems_{{page.edition}}/{{currentIndex}}"><  &nbsp; previous</a></p>
   </div>
   <div class="nextlink">
-    <p><a href="file:///C:/Users/Quinn/Documents/DoubleSpeak/Price%20Lab%20Work/ds-website-files/notepage.html">next &nbsp; ></a></p>
+    <p><a href="{{site.url}}/poems_{{page.edition}}/{{nextIndex}}">next &nbsp; ></a></p>
   </div>
 </body>
 <html>
